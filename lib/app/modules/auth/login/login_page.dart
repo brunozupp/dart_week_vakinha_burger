@@ -1,7 +1,7 @@
-import 'package:dart_week_vakinha_burger/core/ui/vakinha_ui.dart';
-import 'package:dart_week_vakinha_burger/core/ui/widgets/vakinha_appbar.dart';
-import 'package:dart_week_vakinha_burger/core/ui/widgets/vakinha_button.dart';
-import 'package:dart_week_vakinha_burger/core/ui/widgets/vakinha_textformfield.dart';
+import 'package:dart_week_vakinha_burger/app/core/ui/vakinha_ui.dart';
+import 'package:dart_week_vakinha_burger/app/core/ui/widgets/vakinha_appbar.dart';
+import 'package:dart_week_vakinha_burger/app/core/ui/widgets/vakinha_button.dart';
+import 'package:dart_week_vakinha_burger/app/core/ui/widgets/vakinha_textformfield.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 

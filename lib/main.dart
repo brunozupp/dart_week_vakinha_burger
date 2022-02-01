@@ -1,6 +1,6 @@
-import 'package:dart_week_vakinha_burger/core/ui/vakinha_ui.dart';
-import 'package:dart_week_vakinha_burger/routes/auth_routers.dart';
-import 'package:dart_week_vakinha_burger/routes/splash_routers.dart';
+import 'package:dart_week_vakinha_burger/app/core/ui/vakinha_ui.dart';
+import 'package:dart_week_vakinha_burger/app/routes/auth_routers.dart';
+import 'package:dart_week_vakinha_burger/app/routes/splash_routers.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 

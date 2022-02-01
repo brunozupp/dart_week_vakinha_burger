@@ -1,4 +1,4 @@
-import 'package:dart_week_vakinha_burger/core/ui/widgets/vakinha_button.dart';
+import 'package:dart_week_vakinha_burger/app/core/ui/widgets/vakinha_button.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 

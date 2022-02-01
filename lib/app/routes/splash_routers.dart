@@ -1,4 +1,4 @@
-import 'package:dart_week_vakinha_burger/modules/splash/splash_page.dart';
+import 'package:dart_week_vakinha_burger/app/modules/splash/splash_page.dart';
 import 'package:get/get.dart';
 
 class SplashRouters {

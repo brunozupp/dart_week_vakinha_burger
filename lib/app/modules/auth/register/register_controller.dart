@@ -1,11 +1,13 @@
 import 'dart:developer';
 
+import 'package:dart_week_vakinha_burger/app/core/constants/constants.dart';
 import 'package:dart_week_vakinha_burger/app/core/exceptions/rest_client_exception.dart';
 import 'package:dart_week_vakinha_burger/app/core/mixins/loader_mixin.dart';
 import 'package:dart_week_vakinha_burger/app/core/mixins/messages_mixin.dart';
 import 'package:get/get.dart';
 
 import 'package:dart_week_vakinha_burger/app/repositories/auth/auth_repository.dart';
+import 'package:get_storage/get_storage.dart';
 
 class RegisterController extends GetxController with LoaderMixin, MessagesMixin {
 
@@ -29,17 +31,11 @@ class RegisterController extends GetxController with LoaderMixin, MessagesMixin 
 
     try {
       
-      await _authRepository.register(name, email, password);
-
-      _message(MessageModel(
-        title: "Sucesso", 
-        message: "Cadastro realizado com sucesso", 
-        type: MessageType.info
-      ));
+      final userLogged = await _authRepository.register(name, email, password);
 
       _loading.toggle();
 
-      Get.back();
+      GetStorage().write(Constants.USER_KEY, userLogged.id);
 
     } on RestClientException catch (e, s) {
 

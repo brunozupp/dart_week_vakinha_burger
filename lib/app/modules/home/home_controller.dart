@@ -1,10 +1,18 @@
-import 'package:dart_week_vakinha_burger/app/core/services/auth_service.dart';
-import 'package:dart_week_vakinha_burger/app/modules/menu/menu_bindings.dart';
-import 'package:dart_week_vakinha_burger/app/modules/menu/menu_page.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
+import 'package:dart_week_vakinha_burger/app/core/services/auth_service.dart';
+import 'package:dart_week_vakinha_burger/app/core/services/shopping_card_service.dart';
+import 'package:dart_week_vakinha_burger/app/modules/menu/menu_bindings.dart';
+import 'package:dart_week_vakinha_burger/app/modules/menu/menu_page.dart';
+
 class HomeController extends GetxController {
+
+  final ShoppingCardService _shoppingCardService;
+
+  HomeController({
+    required ShoppingCardService shoppingCardService,
+  }) : _shoppingCardService = shoppingCardService;
 
   static const NAVIGATOR_KEY = 1;
 
@@ -13,6 +21,8 @@ class HomeController extends GetxController {
   final _tabIndex = 0.obs;
   
   int get tabIndex => _tabIndex.value;
+
+  int get totalProductsInShoppingCard => _shoppingCardService.totalProducts;
 
   set tabIndex(int index) {
     _tabIndex(index);

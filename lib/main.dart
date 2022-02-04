@@ -2,6 +2,7 @@ import 'package:dart_week_vakinha_burger/app/core/bindings/application_bindings.
 import 'package:dart_week_vakinha_burger/app/core/ui/vakinha_ui.dart';
 import 'package:dart_week_vakinha_burger/app/routes/auth_routers.dart';
 import 'package:dart_week_vakinha_burger/app/routes/home_routers.dart';
+import 'package:dart_week_vakinha_burger/app/routes/orders_routers.dart';
 import 'package:dart_week_vakinha_burger/app/routes/product_routers.dart';
 import 'package:dart_week_vakinha_burger/app/routes/splash_routers.dart';
 import 'package:flutter/material.dart';
@@ -30,6 +31,7 @@ class VakinhaBurgerMainApp extends StatelessWidget {
         ...AuthRouters.routers,
         ...HomeRouters.routers,
         ...ProductRouters.routers,
+        ...OrdersRouters.routers
       ],
     );
   }

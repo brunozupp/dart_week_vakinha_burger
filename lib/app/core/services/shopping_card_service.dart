@@ -10,6 +10,21 @@ class ShoppingCardService extends GetxService {
 
   int get totalProducts => _shoppingCard.values.length;
 
+  // double get totalValue {
+
+  //   var listOfTotalPerProduct = products.map((shoppingCardModel) => shoppingCardModel.quantity * shoppingCardModel.product.price);
+
+  //   var sum = listOfTotalPerProduct.reduce((value, element) => value + element);
+
+  //   return sum;
+  // }
+
+  double get totalValue {
+    return _shoppingCard.values.fold(0, (totalValue, shoppingCardModel) {
+      return totalValue += shoppingCardModel.quantity * shoppingCardModel.product.price;
+    });
+  }
+
   ShoppingCardModel? getById(int id) => _shoppingCard[id];
 
   void addAndRemoveProductInShoppingCard(ProductModel product, {required int quantity}) {
@@ -29,4 +44,7 @@ class ShoppingCardService extends GetxService {
       });
     }
   }
+
+  void clear() => _shoppingCard.clear();
+  
 }

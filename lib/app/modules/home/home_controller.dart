@@ -1,3 +1,5 @@
+import 'package:dart_week_vakinha_burger/app/modules/order/shopping_card/shopping_card_bindings.dart';
+import 'package:dart_week_vakinha_burger/app/modules/order/shopping_card/shopping_card_page.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
@@ -46,7 +48,12 @@ class HomeController extends GetxController {
     }
 
     if(settings.name == '/order/shopping_card') {
-
+      return GetPageRoute(
+        settings: settings,
+        page: () => ShoppingCardPage(),
+        binding: ShoppingCardBindings(),
+        transition: Transition.fadeIn
+      );
     }
   }
 }

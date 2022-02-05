@@ -45,7 +45,7 @@ class PlusMinusBox extends StatelessWidget {
             Visibility(
               visible: label != null,
               child: Text(
-                label!,
+                label ?? "",
                 style: const TextStyle(
                   fontSize: 15,
                 ),

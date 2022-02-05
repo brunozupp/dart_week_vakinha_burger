@@ -1,5 +1,3 @@
-import 'dart:convert';
-
 import 'package:dart_week_vakinha_burger/app/models/shopping_card_model.dart';
 
 class Order {

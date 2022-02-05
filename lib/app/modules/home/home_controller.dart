@@ -18,7 +18,7 @@ class HomeController extends GetxController {
 
   static const NAVIGATOR_KEY = 1;
 
-  final _tabs = ['/menu','/order/shopping_card','exit'];
+  final _tabs = ['/menu','/order/shopping_card','/exit'];
 
   final _tabIndex = 0.obs;
   
@@ -55,5 +55,12 @@ class HomeController extends GetxController {
         transition: Transition.fadeIn
       );
     }
+
+    // return GetPageRoute(
+    //   settings: settings,
+    //   page: () => const MenuPage(),
+    //   binding: MenuBindings(),
+    //   transition: Transition.fadeIn
+    // );
   }
 }

@@ -15,9 +15,6 @@ class ShoppingCardPage extends GetView<ShoppingCardController> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(
-        title: const Text('ShoppingCardPage'),
-      ),
       body: LayoutBuilder(builder: (_, constraints) {
         return SingleChildScrollView(
           child: ConstrainedBox(
@@ -159,12 +156,10 @@ class _AddressField extends GetView<ShoppingCardController> {
         children: [
           const SizedBox(
             height: 35,
-            child: Expanded(
-              child: Text(
-                'Endereço de entrega',
-                overflow: TextOverflow.ellipsis,
-                style: TextStyle(fontSize: 18),
-              ),
+            child: Text(
+              'Endereço de entrega',
+              overflow: TextOverflow.ellipsis,
+              style: TextStyle(fontSize: 18),
             ),
           ),
           TextFormField(
@@ -197,12 +192,10 @@ class _CpfField extends GetView<ShoppingCardController> {
         children: [
           const SizedBox(
             height: 35,
-            child: Expanded(
-              child: Text(
-                'CPF',
-                overflow: TextOverflow.ellipsis,
-                style: TextStyle(fontSize: 18),
-              ),
+            child: Text(
+              'CPF',
+              overflow: TextOverflow.ellipsis,
+              style: TextStyle(fontSize: 18),
             ),
           ),
           TextFormField(

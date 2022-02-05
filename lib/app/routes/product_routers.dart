@@ -1,5 +1,3 @@
-import 'package:dart_week_vakinha_burger/app/modules/home/home_bindings.dart';
-import 'package:dart_week_vakinha_burger/app/modules/home/home_page.dart';
 import 'package:dart_week_vakinha_burger/app/modules/product_detail/product_detail_bindings.dart';
 import 'package:dart_week_vakinha_burger/app/modules/product_detail/product_detail_page.dart';
 import 'package:get/get.dart';

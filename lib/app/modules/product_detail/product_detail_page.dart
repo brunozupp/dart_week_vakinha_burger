@@ -13,6 +13,7 @@ class ProductDetailPage extends GetView<ProductDetailController> {
 
   @override
   Widget build(BuildContext context) {
+
     return Scaffold(
       appBar: VakinhaAppBar(),
       body: LayoutBuilder(

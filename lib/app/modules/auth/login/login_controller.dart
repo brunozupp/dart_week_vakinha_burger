@@ -1,7 +1,6 @@
 import 'dart:developer';
 
 import 'package:dart_week_vakinha_burger/app/core/constants/constants.dart';
-import 'package:dart_week_vakinha_burger/app/core/exceptions/rest_client_exception.dart';
 import 'package:dart_week_vakinha_burger/app/core/exceptions/user_not_found_exception.dart';
 import 'package:dart_week_vakinha_burger/app/core/mixins/loader_mixin.dart';
 import 'package:dart_week_vakinha_burger/app/core/mixins/messages_mixin.dart';

@@ -1,3 +1,6 @@
+import 'package:dart_week_vakinha_burger/app/core/exceptions/rest_client_exception.dart';
+import 'package:dart_week_vakinha_burger/app/core/mixins/loader_mixin.dart';
+import 'package:dart_week_vakinha_burger/app/core/mixins/messages_mixin.dart';
 import 'package:dart_week_vakinha_burger/app/models/order.dart';
 import 'package:dart_week_vakinha_burger/app/models/shopping_card_model.dart';
 import 'package:dart_week_vakinha_burger/app/modules/home/home_controller.dart';
@@ -7,7 +10,7 @@ import 'package:get/get.dart';
 import 'package:dart_week_vakinha_burger/app/core/services/auth_service.dart';
 import 'package:dart_week_vakinha_burger/app/core/services/shopping_card_service.dart';
 
-class ShoppingCardController extends GetxController {
+class ShoppingCardController extends GetxController with LoaderMixin, MessagesMixin {
 
   final AuthService _authService;
   final ShoppingCardService _shoppingCardService;
@@ -26,6 +29,9 @@ class ShoppingCardController extends GetxController {
 
   set address(String value) => _address(value);
   set cpf(String value) => _cpf(value);
+
+  final _loading = false.obs;
+  final _message = Rxn<MessageModel>();
 
   List<ShoppingCardModel> get products => _shoppingCardService.products;
 
@@ -58,16 +64,46 @@ class ShoppingCardController extends GetxController {
       items: products
     );
 
-    var orderPix = await _orderRepository.createOrder(order);
+    _loading(true);
 
-    orderPix = orderPix.copyWith(
-      totalValue: totalValue
-    );
+    try {
+      var orderPix = await _orderRepository.createOrder(order);
 
-    clear();
+      _loading(false);
 
-    Get.offNamed('/orders/finished', arguments: orderPix);
+      orderPix = orderPix.copyWith(
+        totalValue: totalValue
+      );
 
-    Get.back(id: HomeController.NAVIGATOR_KEY);
+      clear();
+
+      Get.offNamed('/orders/finished', arguments: orderPix);
+
+      Get.back(id: HomeController.NAVIGATOR_KEY);
+    } on RestClientException catch (e) {
+      _loading(false);
+
+      _message(MessageModel(
+        title: "Erro!", 
+        message: e.message, 
+        type: MessageType.error
+      ));
+    } catch(e) {
+      _loading(false);
+
+      _message(MessageModel(
+        title: "Erro!", 
+        message: "Erro ao finalizar pedido", 
+        type: MessageType.error
+      ));
+    }
+  }
+
+  @override
+  void onInit() {
+    super.onInit();
+
+    loaderListener(_loading);
+    messageListener(_message);
   }
 }
